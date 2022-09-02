@@ -11,4 +11,6 @@ router.get('/', (req:Request, res:Response) => {
 });
 
 app.use('/', router);
-app.listen
+app.listen(3000, () => {
+  console.log('testando');
+});
