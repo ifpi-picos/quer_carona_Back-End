@@ -34,7 +34,7 @@ Benefícios:
       
 <br>
 <div align="center">
-  <h3>Demonstração das Tela Iniciais</h3>
+  <h3>Demonstração das Telas Iniciais</h3>
   
 <br>
   
