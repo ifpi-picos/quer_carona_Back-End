@@ -33,6 +33,15 @@ Benefícios:
    * Preservação ambiental com menos veículos nas ruas emitindo CO² e mais fluidez no trânsito.  
       
 <br>
+<div align="center">
+  <h3>Gif de Tela Iniciais de Navegação</h3>
+  
+<br>
+  
+![telas](img/quercarona.gif)
+  
+</div>
+
 <div style="display:block" align="center"><br>
   <h4 align="center">
     As seguintes ferramentas estão sendo utilizada:
