@@ -1,16 +1,10 @@
 import express from 'express';
-import { Request, Response, Router } from 'express';
-
+import routes from "./routes";
 
 
 const app = express();
-const router = Router();
-
-router.get('/', (req:Request, res:Response) => {
-  res.send('World!');
-});
-
-app.use('/', router);
+app.use(express.json());
+app.use('/', routes);
 app.listen(3000, () => {
-  console.log('testando');
+  console.log('App running in localhost:3000');
 });
