@@ -1,8 +1,10 @@
+import { PrismaClient } from "@prisma/client";
 import { Request, Response, Router } from "express";
 import { UserController } from "../controllers";
 import { UserRepository } from "../repositories";
 
 const router = Router();
+//const prisma = new PrismaClient();
 
 const userRepository = new UserRepository();
 const controller = new UserController(userRepository);
