@@ -6,15 +6,72 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Usuario {
-  id    Int    @id @default(autoincrement())
-  email String @unique
-  nome  String
+  id      Int     @id @default(autoincrement())
+  email   String  @unique
+  nome    String
+  roupa   String
+  gorjeta Boolean
 
   @@map("usuario")
+}
+
+model Passageiro {
+  id      Int     @id @default(autoincrement())
+  email   String  @unique
+  nome    String
+  roupa   String
+  gorjeta Boolean
+
+  @@map("passageiro")
+}
+
+model Motorista {
+  id      Int     @id @default(autoincrement())
+  email   String  @unique
+  nome    String
+  roupa   String
+  gorjeta Boolean
+
+  @@map("motorista")
+}
+
+model Veiculo {
+  id    Int    @id @default(autoincrement())
+  marca String
+  placa String
+  vagas Int
+
+  @@map("veiculo")
+}
+
+model Corrida {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  horario   DateTime
+  vagas     Int
+  descricao String
+  percurso  Pontos[]
+
+  @@map("corrida")
+}
+
+model Ponto {
+  id        Int    @id @default(autoincrement())
+  latitude  double
+  longitude double
+
+  @@map("ponto")
+}
+
+model Avaliacao {
+  id   Int @id @default(autoincrement())
+  nota Int
+
+  @@map("avaliacao") 
 }
