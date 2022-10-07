@@ -8,7 +8,6 @@ generator client {
 datasource db {
   provider          = "postgresql"
   url               = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Usuario {
@@ -56,15 +55,14 @@ model Corrida {
   horario   DateTime
   vagas     Int
   descricao String
-  percurso  Pontos[]
 
   @@map("corrida")
 }
 
 model Ponto {
-  id        Int    @id @default(autoincrement())
-  latitude  double
-  longitude double
+  id Int @id @default(autoincrement())
+  latitude  Boolean
+  longitude Boolean
 
   @@map("ponto")
 }
@@ -73,5 +71,5 @@ model Avaliacao {
   id   Int @id @default(autoincrement())
   nota Int
 
-  @@map("avaliacao") 
+  @@map("avaliacao")
 }
