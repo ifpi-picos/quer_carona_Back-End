@@ -4,6 +4,7 @@ import { UserRepository } from "../repositories";
 export class UserController {
 
     constructor(private userRepository: UserRepository) {}
+    
     findAll() {
         return this.userRepository.findAll();
     }

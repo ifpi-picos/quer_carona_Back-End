@@ -15,7 +15,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ifpi-picos/quer_carona_Back-End.git"
-  },
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -43,3 +43,5 @@
     "typescript": "^4.8.2"
   }
 }
+
+
