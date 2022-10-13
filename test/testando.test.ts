@@ -13,6 +13,6 @@ describe('Testando ambiente de Teste', () => {
         const nPessoa = { ...pessoa }
 
         expect(pessoa).toEqual(nPessoa);
-
+        expect(pessoa).toHaveProperty('idade'); //testando se tem tal propriedade dentro do objeto.
     })
 })
