@@ -6,13 +6,13 @@ generator client {
 }
 
 datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Usuario {
-  id      Int     @id @default(autoincrement())
-  email   String  @unique
+  id      Int @id @default(autoincrement())
+  email   String   @unique
   nome    String
   roupa   String
   gorjeta Boolean
@@ -21,8 +21,8 @@ model Usuario {
 }
 
 model Passageiro {
-  id      Int     @id @default(autoincrement())
-  email   String  @unique
+  id      Int @id @default(autoincrement())
+  email   String    @unique
   nome    String
   roupa   String
   gorjeta Boolean
@@ -31,8 +31,8 @@ model Passageiro {
 }
 
 model Motorista {
-  id      Int     @id @default(autoincrement())
-  email   String  @unique
+  id      Int @id @default(autoincrement())
+  email   String    @unique
   nome    String
   roupa   String
   gorjeta Boolean
@@ -41,7 +41,7 @@ model Motorista {
 }
 
 model Veiculo {
-  id    Int    @id @default(autoincrement())
+  id    Int @id @default(autoincrement())
   marca String
   placa String
   vagas Int
@@ -50,7 +50,7 @@ model Veiculo {
 }
 
 model Corrida {
-  id        Int      @id @default(autoincrement())
+  id        Int  @id @default(autoincrement())
   nome      String
   horario   DateTime
   vagas     Int
@@ -62,7 +62,7 @@ model Corrida {
 model Ponto {
   id Int @id @default(autoincrement())
   latitude  Boolean
-  longitude Boolean
+  longitude Boolean 
 
   @@map("ponto")
 }
