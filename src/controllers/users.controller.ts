@@ -5,15 +5,15 @@ export class UserController {
 
     constructor(private userRepository: UserRepository) {}
     
-    findAll() {
-        return this.userRepository.findAll();
+    async findAll() {
+        return await this.userRepository.findAll();
     }
 
-    create(data: Omit<User, 'id'>) {
-        return this.userRepository.create(data);
+    async create(data: Omit<User, 'id'>) {
+        return await this.userRepository.create(data);
     }
 
-    findOne(id: string) {
-        return this.userRepository.findOne(id);
+    async findOne(id: string) {
+        return await this.userRepository.findOne(parseInt(id));
     }
 }

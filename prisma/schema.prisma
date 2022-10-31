@@ -14,8 +14,8 @@ model Usuario {
   id      Int @id @default(autoincrement())
   email   String   @unique
   nome    String
-  roupa   String
-  gorjeta Boolean
+  data_nascimento DateTime
+  senha String
 
   @@map("usuario")
 }

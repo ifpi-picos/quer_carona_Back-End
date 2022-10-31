@@ -1,19 +1,22 @@
 import { User } from "../models/user";
-
+import { PrismaClient } from "@prisma/client";
 export class UserRepository {
-    users: User[] = []
-    findAll() {
-        return this.users;
+    private client: PrismaClient;
+    constructor(client: PrismaClient) {
+        this.client = client;
+    }
+    async findAll() {
+        return await this.client.usuario.findMany();
     } 
 
-    create(data: Omit<User, 'id'>) {
-        const newUser = {...data, id: (this.users.length + 1).toString()}
-        this.users.push(newUser);
+    async create(data: Omit<User, 'id'>) {
+        const newUser = await this.client.usuario.create({data});
+        console.log(newUser);
         return newUser;
     }
 
-    findOne(id: string) {
-        return this.users.find((el) => el.id === id);
+    async findOne(id: number) {
+        return await this.client.usuario.findUnique({where: {id}});
     }
 
     
