@@ -11,7 +11,6 @@ export class UserRepository {
 
     async create(data: Omit<User, 'id'>) {
         const newUser = await this.client.usuario.create({data});
-        console.log(newUser);
         return newUser;
     }
 
