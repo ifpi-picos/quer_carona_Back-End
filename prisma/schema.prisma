@@ -16,6 +16,7 @@ model Usuario {
   nome    String
   data_nascimento DateTime
   senha String
+  salt_senha String
 
   @@map("usuario")
 }

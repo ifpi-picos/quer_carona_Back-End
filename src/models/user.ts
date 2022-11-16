@@ -4,4 +4,5 @@ export interface User {
     nome: string;
     data_nascimento: Date;
     senha: string;
+    salt_senha: string;
 }
