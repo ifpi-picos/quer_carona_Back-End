@@ -9,7 +9,7 @@
     "test": "jest",
     "test:silent": "jest --watchAll --silent --noStackTrace",
     "postinstall": "npm run migrate",
-    "migrate": "npx prisma migrate dev",
+    "migrate": "npx prisma migrate deploy",
     "prepare": "husky install"
   },
   "lint-staged": {
