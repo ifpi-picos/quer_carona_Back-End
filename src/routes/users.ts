@@ -10,19 +10,31 @@ const userRepository = new UserRepository(client);
 const controller = new UserController(userRepository);
 
 router.get("/", async (req: Request, res: Response) => {
-  return res.status(200).send(await controller.findAll());
+  try {
+    return res.status(200).send(await controller.findAll());
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 router.post("/", async (req: Request, res: Response) => {
-  const { body: data } = req;
-  return res.status(201).send(await controller.create(data));
+  try {
+    const { body: data } = req;
+    return res.status(201).send(await controller.create(data));
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 router.get("/:id", async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const user = await controller.findOne(id);
-  if (user) return res.status(200).send(user);
-  return res.status(404).send({ message: "User not found" });
+  try {
+    const { id } = req.params;
+    const user = await controller.findOne(id);
+    if (user) return res.status(200).send(user);
+    return res.status(404).send({ message: "User not found" });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 export default router;

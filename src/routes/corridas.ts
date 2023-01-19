@@ -11,34 +11,58 @@ const corridaRepository = new CorridaRepository(client);
 const controller = new CorridaController(corridaRepository);
 
 router.get("/", authorize, async (req: Request, res: Response) => {
-  return res.status(200).send(await controller.findAll());
+  try {
+    return res.status(200).send(await controller.findAll());
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 router.post("/", authorize, async (req: Request, res: Response) => {
-  const { body: data } = req;
+  try {
+    const { body: data } = req;
   const { userId } = res.locals;
   return res.status(201).send(await controller.giveCorrida(data, userId));
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 router.get("/given", authorize, async (req: Request, res: Response) => {
-  const { userId } = res.locals;
+  try {
+    const { userId } = res.locals;
   return res.status(200).send(await controller.findCorridasGiven(userId));
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 
 router.get("/available", authorize, async (req: Request, res: Response) => {
-  const { userId } = res.locals;
+  try {
+    const { userId } = res.locals;
   return res.status(200).send(await controller.findAvailableCorridas(userId));
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 router.get("/taken", authorize, async (req: Request, res: Response) => {
-  const { userId } = res.locals;
+  try {
+    const { userId } = res.locals;
   return res.status(200).send(await controller.findCorridasGiven(userId));
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 router.get("/:id", authorize, async (req: Request, res: Response) => {
-  const { id: corridaId } = req.params;
+  try {
+    const { id: corridaId } = req.params;
   return res.status(200).send(await controller.findOne(corridaId));
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 router.put("/:id", authorize, async (req: Request, res: Response) => {
   try {
