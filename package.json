@@ -7,8 +7,9 @@
     "start": "node ./dist/src/app.js",
     "lint": "eslint . --ext .ts",
     "test": "jest",
+    "build": "npm run migrate && tsc",
     "test:silent": "jest --watchAll --silent --noStackTrace",
-    "postinstall": "npm run migrate",
+    "postinstall": "npm run build",
     "migrate": "npx prisma migrate deploy",
     "prepare": "husky install"
   },
