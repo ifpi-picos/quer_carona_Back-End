@@ -8,6 +8,7 @@
     "lint": "eslint . --ext .ts",
     "test": "jest",
     "test:silent": "jest --watchAll --silent --noStackTrace",
+    "postinstall": "npm run migrate",
     "migrate": "npx prisma migrate dev",
     "prepare": "husky install"
   },
