@@ -17,7 +17,9 @@ model Usuario {
   data_nascimento DateTime
   senha String
   salt_senha String
-
+  telefone String @default("")
+  minhas_corridas Corrida[]
+  corridas_pegas PassageiroOnCorrida[]
   @@map("usuario")
 }
 
@@ -52,13 +54,26 @@ model Veiculo {
 
 model Corrida {
   id        Int  @id @default(autoincrement())
-  nome      String
+  start String
+  end String
+  motorista Usuario @relation(fields: [motoristaId], references: [id])
+  motoristaId Int
   horario   DateTime
   vagas     Int
-  descricao String
-
+  passageiros PassageiroOnCorrida[]
+  finalizada Boolean
   @@map("corrida")
 }
+
+model PassageiroOnCorrida {
+  corrida Corrida  @relation(fields: [corridaId], references: [id])
+  corridaId Int
+  passageiro Usuario @relation(fields: [passageiroId], references: [id])
+  passageiroId Int
+
+  @@id([corridaId, passageiroId])
+}
+
 
 model Ponto {
   id Int @id @default(autoincrement())

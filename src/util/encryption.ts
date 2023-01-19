@@ -1,13 +1,17 @@
 import { genSaltSync, hashSync, compareSync } from "bcryptjs";
 export function encryptPassword(password: string, salt?: string) {
-    if (!salt) {
-        salt = genSaltSync();
+    let passSalt = salt;
+    if (!passSalt) {
+        passSalt = genSaltSync();
     }
-    const encryptedPassword = hashSync(password, salt);
-    return {salt, encryptedPassword}
+    console.log("🚀 ~ file: encryption.ts ~ line 4 ~ encryptPassword ~ let passSalt = salt;", password)
+    
+    const encryptedPassword = hashSync(password, passSalt);
+    return {passSalt, encryptedPassword}
 
 }
 
 export function comparePassword(password: string, salt: string, comparation: string) {
     return compareSync(comparation, password)
 }
+

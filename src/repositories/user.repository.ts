@@ -11,7 +11,8 @@ export class UserRepository {
     } 
 
     async create(data: Omit<User, 'id' | 'salt_senha'>) {
-        const {salt, encryptedPassword} = encryptPassword(data.senha);
+        console.log("🚀 ~ file: user.repository.ts ~ line 14 ~ UserRepository ~ create ~ data", data)
+        const {passSalt: salt, encryptedPassword} = encryptPassword(data.senha);
         const userData: Omit<User, 'id'> = {
             ...data,
             salt_senha: salt,
