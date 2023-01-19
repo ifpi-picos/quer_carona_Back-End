@@ -16,6 +16,7 @@ app.use(cors({
 }));
 
 app.use('/', routes);
-app.listen(3001, () => {
-  console.log('App running in localhost:3000');
+const port = process.env["PORT"] ?? 3001
+app.listen(port, () => {
+  console.log(`App running at ${port}`);
 });
